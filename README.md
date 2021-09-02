@@ -1,11 +1,9 @@
-# 20210819 방신호님
-
-```
-학생들의 중간고사 점수를 관리하는 서버를 만드는 과제입니다.
-아래 기능적 요구 사항과 비기능적 요구 사항을 잘 확인하고 제출 부탁드립니다.
-```
-
-## 기능적 요구 사항
+-- --
+# 20210819 방신호 MathFlat Kotlin 과제 제출
+-- --
+# Requirements
+-- --
+## Functional
 
 기능적 요구 사항은 아래 내용들과 추가로 필요하다고 생각되는 기능들까지 자유롭게 개발합니다.
 
@@ -19,23 +17,61 @@
 * 특정 학생에 대해 평균 점수를 조회할 수 있다.
 * 특정 과목에 대해 전체 학생들의 평균 점수를 조회할 수 있다.
 
-## 비기능적 요구 사항
+## Non-functional
 
 과제는 Spring Boot 를 사용해야만 합니다.
 
-#### 공통
+#### Common
 
 * 관계형 데이터베이스를 사용해서 개발해주세요
 * REST API 형식으로 개발해주세요
 * 다른 사람이 읽기 좋은 코드로 개발해주세요
 * 오류 사항을 최소화하고, 기능적 예외사항에 대해 사용자가 이해하기 쉽게 처리해주세요 (ex. 존재하지 않는 학생 삭제)
 
-#### Spring Boot 사용 시
+#### Spec
 
-* [Kotlin](https://kotlinlang.org/) 
+* [Kotlin](https://kotlinlang.org/)
 * [Spring Boot 2.x](https://spring.io/projects/spring-boot) 이상 버전 사용
 
-### 제출 방법
+-- --
+# Project Spec
+- java 11
+- gradle 11
+- spring-boot 2.5.4
+- use lombok
+- use `h2` database > jpa (kotlin plugin.jpa 1.5.21)
+-- --
 
-* README에 실행 방법 및 코드 및 구조에 대한 개요를 포함해 주세요
-* 디비 스키마에 대해서도 제출해 주세요 (ERD 혹은 DDL)
+# Code
+## Package Structure
+- com.senob.mathflat
+    - controller : api 통신 컨트롤러
+    - domain : jpa entity
+    - dto : Request & Response 에 사용 되는 Dto
+    - handler : exception 처리 핸들러
+    - repository : JPA Persistence
+    - service : Business Layer
+
+## Resources
+- application.yml : Spring Boot 기본 설정
+- data.sql : db sample data
+- ddl.sql : ddl sql
+
+-- --
+# Install & Excute
+-- --
+## Install
+```
+$ git clone https://github.com/mathflat-dev/20210819_seno-b.git
+```
+## Build
+```aidl
+$ ./gradlew clean
+$ ./gradlew build 
+```
+
+## Run
+- build 아래 명령어 Run 진행
+```aidl
+$ java -jar ./build/libs/20210819_seno-b-1.0.jar 
+```
