@@ -34,7 +34,7 @@ class StudentClassRoom(student: Student, classRoom: ClassRoom) {
     }
 
     override fun toString(): String {
-        return "StudentClassRoom(id=$id, student_id=$student.id, class_id=$classRoom.id)"
+        return "StudentClassRoom(id=$id)"
     }
 
 
