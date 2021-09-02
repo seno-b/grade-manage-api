@@ -1,3 +1,7 @@
+server.error:
+  include-exception: true
+  include-stacktrace: never # 오류 응답에 stacktrace 내용을 포함할 지 여부
+
 spring:
   datasource:
     url: jdbc:h2:tcp://localhost/~/student_grade_managements
