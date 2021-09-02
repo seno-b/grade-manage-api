@@ -12,6 +12,10 @@ class Subject(name: String){
     @Column(length = 100)
     var name: String = name
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "class_id")
+    lateinit var classRoom: ClassRoom
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
