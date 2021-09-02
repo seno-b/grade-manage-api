@@ -12,19 +12,6 @@ import org.springframework.stereotype.Service
 @Service
 class StudentService(val studentRepository: StudentRepository, val classRoomRepository: ClassRoomRepository, val subjectRepository: SubjectRepository){
 
-    fun putSubject(subjectDto: SubjectDto): SubjectDto {
-        // 강의 조회
-        val findClassRoom = classRoomRepository.findById(subjectDto.classId).get()
-
-        // 과목 생성
-        val subject = Subject(subjectDto.name)
-        subject.classRoom = findClassRoom
-        subjectRepository.save(subject)
-        subjectDto.id = subject.id
-
-        return subjectDto
-    }
-
     fun putStudent(studentDto: StudentDto): StudentDto {
         val student = Student(studentDto.name, studentDto.grade, studentDto.schoolName)
         studentRepository.save(student)
