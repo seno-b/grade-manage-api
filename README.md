@@ -1,5 +1,5 @@
 -- --
-# 20210819 방신호 MathFlat Kotlin 과제 제출
+# 방신호 MathFlat Kotlin 과제 제출
 -- --
 # Requirements
 -- --
@@ -38,7 +38,7 @@
 - java 11
 - gradle 11
 - spring-boot 2.5.4
-- use lombok
+- use `lombok`
 - use `h2` database > jpa (kotlin plugin.jpa 1.5.21)
 -- --
 
@@ -66,13 +66,13 @@
 $ git clone https://github.com/mathflat-dev/20210819_seno-b.git
 ```
 ## Build
-```aidl
+```
 $ ./gradlew clean
 $ ./gradlew build 
 ```
 
 ## Run
 - build 아래 명령어 Run 진행
-```aidl
+```
 $ java -jar ./build/libs/20210819_seno-b-1.0.jar 
 ```
