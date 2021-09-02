@@ -3,28 +3,26 @@ package com.senob.mathflat.domain
 import javax.persistence.*
 
 @Entity
-class Student(name: String, grade: Int, schoolName: String) {
+@Table(name = "student_classroom")
+class StudentClassRoom(student: Student, classRoom: ClassRoom) {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
 
-    @Column(length = 20)
-    var name: String = name
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id")
+    var student: Student = student
 
-    @Column(length = 2)
-    var grade: Int = grade
-
-    @Column(length = 20)
-    var schoolName: String = schoolName
-
-    @OneToMany(mappedBy = "student")
-    lateinit var classRooms: List<StudentClassRoom>
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "class_id")
+    var classRoom: ClassRoom = classRoom
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as Student
+        other as StudentClassRoom
 
         if (id != other.id) return false
 
@@ -36,6 +34,8 @@ class Student(name: String, grade: Int, schoolName: String) {
     }
 
     override fun toString(): String {
-        return "Student(id=$id, studentName='$name', grade=$grade, schoolName='$schoolName')"
+        return "StudentClassRoom(id=$id)"
     }
+
+
 }

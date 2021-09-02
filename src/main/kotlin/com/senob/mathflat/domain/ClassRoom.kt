@@ -4,20 +4,26 @@ import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
-class ClassRoom(className: String, teacherName: String, startDate: LocalDateTime, endDate: LocalDateTime) {
+class ClassRoom(name: String, teacherName: String, startDate: LocalDateTime, endDate: LocalDateTime) {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
 
     @Column(length = 100)
-    var className: String = className
+    var name: String = name
 
     @Column(length = 20)
     var teacherName: String = teacherName
 
     var startDate: LocalDateTime = startDate
     var endDate: LocalDateTime = endDate
+
+    @OneToMany(mappedBy = "classRoom")
+    lateinit var students: List<StudentClassRoom>
+
+    @OneToMany(mappedBy = "classRoom")
+    lateinit var subjects: List<Subject>
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -35,7 +41,7 @@ class ClassRoom(className: String, teacherName: String, startDate: LocalDateTime
     }
 
     override fun toString(): String {
-        return "ClassRoom(id=$id, className='$className', teacherName='$teacherName', startDate=$startDate, endDate=$endDate)"
+        return "ClassRoom(id=$id, className='$name', teacherName='$teacherName', startDate=$startDate, endDate=$endDate)"
     }
 
 

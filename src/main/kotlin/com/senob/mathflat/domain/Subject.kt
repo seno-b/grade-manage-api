@@ -3,14 +3,18 @@ package com.senob.mathflat.domain
 import javax.persistence.*
 
 @Entity
-class Subject(subjectName: String){
+class Subject(name: String){
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
 
     @Column(length = 100)
-    var subjectName: String = subjectName
+    var name: String = name
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "class_id")
+    lateinit var classRoom: ClassRoom
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -28,7 +32,7 @@ class Subject(subjectName: String){
     }
 
     override fun toString(): String {
-        return "Subject(id=$id, subjectName='$subjectName')"
+        return "Subject(id=$id, subjectName='$name')"
     }
 
 
