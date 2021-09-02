@@ -22,6 +22,9 @@ class ClassRoom(name: String, teacherName: String, startDate: LocalDateTime, end
     @OneToMany(mappedBy = "classRoom")
     lateinit var students: List<StudentClassRoom>
 
+    @OneToMany(mappedBy = "classRoom")
+    lateinit var subjects: List<Subject>
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
