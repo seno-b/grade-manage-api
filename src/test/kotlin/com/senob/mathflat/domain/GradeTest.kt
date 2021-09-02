@@ -33,7 +33,7 @@ internal class GradeTest {
 
         // data.sql 로 임의 데이터 생성하여 테스트 진행
         val findSubject = subjectRepository.findById(1).get()
-        val findStudent = studentRepository.findById(1).get()
+        val findStudent = studentRepository.findById(2).get()
 
         var databaseGrade = Grade(100)
         databaseGrade.student = findStudent
@@ -48,5 +48,12 @@ internal class GradeTest {
         println(findGrade)
         Assertions.assertThat(findGrade).isEqualTo(databaseGrade)
 
+    }
+
+    @Test
+    fun `학생 점수 평균 조회`() {
+        val result = gradeRepository.findGradeAvgByStudentIdAndClassroomId(1, 1)
+
+        println("과목 평균 점수 = $result")
     }
 }
