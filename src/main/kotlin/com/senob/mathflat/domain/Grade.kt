@@ -9,4 +9,8 @@ class Grade(score: Int) {
     var id: Long? = null
 
     var score: Int = score
+
+//    @ManyToOne
+//    @JoinColumn(name = "subject_id")
+//    lateinit var subject: Subject
 }
