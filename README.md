@@ -55,7 +55,8 @@
 ## Resources
 - application.yml : Spring Boot 기본 설정
 - data.sql : db sample data
-- ddl.sql : ddl sql
+- ddl.sql : db ddl sql
+- erd.png : db erd image
 
 -- --
 # Install & Excute
