@@ -63,7 +63,7 @@
 -- --
 ## Install
 ```
-$ git clone https://github.com/mathflat-dev/20210819_seno-b.git
+$ git clone https://github.com/seno-b/grade-manage-api.git
 ```
 ## Build
 ```
@@ -74,5 +74,5 @@ $ ./gradlew build
 ## Run
 - build 아래 명령어 Run 진행
 ```
-$ java -jar ./build/libs/20210819_seno-b-1.0.jar 
+$ java -jar ./build/libs/grade-manage-api-b-1.0.jar 
 ```
